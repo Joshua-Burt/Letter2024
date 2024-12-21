@@ -19,6 +19,18 @@
 		if(text == "amelia") {
 		  document.getElementById("unity-canvas").removeAttribute("hidden");
 		  document.getElementById("activation").setAttribute("hidden", "");
+		  
+		  createUnityInstance(document.querySelector("#unity-canvas"), {
+			dataUrl: "Build/Build.data.unityweb",
+			frameworkUrl: "Build/Build.framework.js.unityweb",
+			codeUrl: "Build/Build.wasm.unityweb",
+			streamingAssetsUrl: "StreamingAssets",
+			companyName: "DefaultCompany",
+			productName: "Letter2024",
+			productVersion: "0.1",
+			// matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+			// devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+		  });
 		}
 	  }
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -35,18 +47,6 @@
 
         document.body.style.textAlign = "left";
       }
-
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/Build.data.unityweb",
-        frameworkUrl: "Build/Build.framework.js.unityweb",
-        codeUrl: "Build/Build.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Letter2024",
-        productVersion: "0.1",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
     </script>
   </body>
 </html>
