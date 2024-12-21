@@ -6,9 +6,21 @@
     <title>Unity WebGL Player | Letter2024</title>
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width=960 height=600 tabindex="-1" style="width: 960px; height: 600px; background: #231F20"></canvas>
+    <div id="activation">
+	  <input id="activation-text" type="text"/>
+	  <br><input id="activation-button" type="button" value="Enter Password" onClick="checkPassword()"/>
+	</div>
+    <canvas id="unity-canvas" width=828 height=1792 tabindex="-1" style="width: 960px; height: 600px; background: #231F20" hidden></canvas>
     <script src="Build/Build.loader.js"></script>
     <script>
+	function checkPassword() {
+	    let text = document.getElementById("activation-text").value
+		console.log(text);
+		if(text == "amelia") {
+		  document.getElementById("unity-canvas").removeAttribute("hidden");
+		  document.getElementById("activation").setAttribute("hidden", "");
+		}
+	  }
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
